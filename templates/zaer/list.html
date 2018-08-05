@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="grid">
+        {% for zaer in zaers %}
+            {{ zaer.first_name }}
+        {% endfor %}
+    </div>
+    {% include "include/pagination_frame.html" with pageable=zaers %}
+{% endblock %}
