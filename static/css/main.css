@@ -1,0 +1,23 @@
+.card-header {
+    padding: 0.5rem 0.7rem;
+    /*padding-top: 0.5rem;*/
+    /*padding-right: 1rem;*/
+    /*padding-bottom: 0.5rem;*/
+    /*padding-left: 1rem;*/
+}
+
+.page-item:first-child .page-link {
+    margin-left: -1px;
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+    border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.page-item:last-child .page-link {
+    /*margin-left: 0;*/
+	border-top-left-radius: .25rem;
+	border-bottom-left-radius: .25rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
