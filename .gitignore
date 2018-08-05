@@ -9,4 +9,3 @@ templates/registration/
 templates/zaer/index.html
 templates/zaer/new_post.html
 templates/zaer/post_by_tag.html
-templates/zaer/post_detail.html

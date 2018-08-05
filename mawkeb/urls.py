@@ -19,5 +19,6 @@ from zaer import views as zaer_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', zaer_view.list),
+    path('', zaer_view.zaer_list, name='zaer_list'),
+    path('<int:zaer_id>', zaer_view.zaer_detail, name='zaer_detail'),
 ]
