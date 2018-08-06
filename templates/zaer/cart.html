@@ -13,7 +13,7 @@
     آدرس: {{ zaer.address }}
     </div>
     <div>
-    تاریخ تولد: {{ zaer.age }}
+    تاریخ تولد: {{ zaer.age}}
     </div>
     <div>
     تاریخ ورود: {{ zaer.in_datetime|to_jalali:'%H:%M:%S %y/%m/%d' }}
@@ -25,4 +25,8 @@
 جنسیت: {% if zaer.gender == 'm'%}   مرد {% elif zaer.gender == 'f' %} زن {% endif %}
     </div>
 
+
+     <script type="text/javascript">
+      window.onload = function() { window.print(); }
+ </script>
 {% endblock %}

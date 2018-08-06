@@ -1,7 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db import transaction
 from .models import Zaer
+from .form import ZaerForm
+import datetime
 
 
 # @login_required
@@ -29,6 +33,35 @@ def zaer_detail(request, zaer_id):
     context = {"zaer": zaer}
     return render(request, "zaer/detail.html", context)
 
-def zaer_card(request, zaer_id):
-    pass
 
+def zaer_cart(request, zaer_id):
+    zaer = Zaer.objects.get(pk=zaer_id)
+
+    context = {"zaer": zaer}
+    return render(request, "zaer/cart.html", context)
+
+def zaer_set_out(request, zaer_id):
+    zaer = Zaer.objects.get(pk=zaer_id)
+    zaer.out_datetime = datetime.datetime.now()
+    zaer.save()
+    return redirect('zaer_detail', zaer_id)
+
+
+@login_required
+@transaction.atomic
+def zaer_new(request):
+    if request.method == 'POST':
+        zaer = Zaer()
+        form = ZaerForm(request.POST, request.FILES, instance=zaer)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'new zaer!')
+            return redirect('zaer_detail', zaer.id)
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = ZaerForm()
+
+    return render(request, 'zaer/new.html', {
+        'form': form,
+    })

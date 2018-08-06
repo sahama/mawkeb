@@ -25,6 +25,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', zaer_view.zaer_list, name='zaer_list'),
     path('<int:zaer_id>', zaer_view.zaer_detail, name='zaer_detail'),
+    path('<int:zaer_id>/print', zaer_view.zaer_cart, name='zaer_cart'),
+    path('<int:zaer_id>/out', zaer_view.zaer_set_out, name='zaer_out'),
+    path('new/', zaer_view.zaer_new, name='zaer_new'),
 ]
 
 
