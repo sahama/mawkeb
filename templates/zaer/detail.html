@@ -1,7 +1,28 @@
 {% extends "base.html" %}
+{% load jalali_tags %}
 
 {% block content%}
+    <img class="rounded-circle" src="{{ zaer.image.url }}" height="128">
     <div>
-    {{ zaer.last_name }}
+    نام: {{ zaer.first_name }}
     </div>
+    <div>
+    نام خانوادگی: {{ zaer.last_name }}
+    </div>
+    <div>
+    آدرس: {{ zaer.address }}
+    </div>
+    <div>
+    تاریخ تولد: {{ zaer.birth_date|to_jalali:'%y/%m/%d' }}
+    </div>
+    <div>
+    تاریخ ورود: {{ zaer.in_datetime|to_jalali:'%H:%M:%S %y/%m/%d' }}
+    </div>
+    <div>
+    تاریخ خروج: {{ zaer.out_datetime|to_jalali:'%H:%M:%S %y/%m/%d' }}
+    </div>
+    <div>
+جنسیت: {% if zaer.gender == 'm'%}   مرد {% elif zaer.gender == 'f' %} زن {% endif %}
+    </div>
+
 {% endblock %}
