@@ -1,5 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
-/images/
 .idea/
 db.sqlite3
 
@@ -9,3 +8,4 @@ templates/registration/
 templates/zaer/index.html
 templates/zaer/new_post.html
 templates/zaer/post_by_tag.html
+/media/

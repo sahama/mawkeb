@@ -2,10 +2,34 @@
 
 {% block content %}
 
-    <div class="grid">
+    <table class="table">
+    <tr>
+    <th>
+        شناسه
+    </th>
+        <th>
+            نام
+        </th>
+        <th>
+            نام خانوادگی
+        </th>
+    </tr>
         {% for zaer in zaers %}
-            {{ zaer.first_name }}
+            <tr>
+            <td>
+                <a href="{% url 'zaer_detail' zaer.id %}" style="text-decoration: none;">
+                    <img class="rounded-circle" src="{{ zaer.image.url }}" height="32" width="32">
+                    {{ zaer.id }}
+                </a>
+            </td>
+            <td>
+                {{ zaer.first_name }}
+            </td>
+            <td>
+                {{ zaer.last_name }}
+            </td>
+            </tr>
         {% endfor %}
-    </div>
+    </table>
     {% include "include/pagination_frame.html" with pageable=zaers %}
 {% endblock %}

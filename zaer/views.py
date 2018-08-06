@@ -28,3 +28,7 @@ def zaer_detail(request, zaer_id):
 
     context = {"zaer": zaer}
     return render(request, "zaer/detail.html", context)
+
+def zaer_card(request, zaer_id):
+    pass
+
