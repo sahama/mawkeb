@@ -139,3 +139,8 @@
     // once loading is complete.
     window.addEventListener('load', startup, false);
 })();
+
+
+var newZaer = function () {
+    console.log('submit');
+}

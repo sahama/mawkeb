@@ -2,51 +2,52 @@
 {% load static %}
 {% load jalali_tags %}
 
-{% block content%}
+{% block content %}
     <link rel="stylesheet" href="{% static "css/capture_picture.css" %}">
 
     <script src="{% static "js/capture_picture.js" %}"></script>
 
-    <form method="post"  enctype="multipart/form-data" novalidate>
-{#        <video></video>#}
+    <form method="post" enctype="multipart/form-data" novalidate>
+        <div class="row">
+            <div class="col col-sm-6">
+                <div class="camera">
+                    <video id="video">Video stream not available.</video>
+                    <button id="startbutton">Take photo</button>
+                </div>
+            </div>
+            <div class="col col-sm-6">
+                <canvas id="canvas">
+                </canvas>
+                <div class="output">
+                    <img id="photo" alt="The screen capture will appear in this box.">
+                </div>
 
+            </div>
+        </div>
 
-
-        <div class="camera">
-    <video id="video">Video stream not available.</video>
-    <button id="startbutton">Take photo</button>
-  </div>
-  <canvas id="canvas">
-  </canvas>
-  <div class="output">
-    <img id="photo" alt="The screen capture will appear in this box.">
-</div>
-
-  {% csrf_token %}
-{#        {{ form.media }}#}
-{#        {{ form.as_p }}#}
-  {% include 'include/form_frame.html' with form=form %}
-  <button type="submit" class="btn btn-primary">ثبت</button>
-</form>
+        {% csrf_token %}
+        {% include 'include/form_frame.html' with form=form %}
+        <button type="submit" class="btn btn-primary" onsubmit="newZaer()">ثبت</button>
+    </form>
     <script>
-{#    (function () {#}
-{#    navigator.getMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);#}
-{##}
-{#    navigator.getMedia(#}
-{#        // constraints#}
-{#        {video:true, audio:false},#}
-{##}
-{#        // success callback#}
-{#        function (mediaStream) {#}
-{#            var video = document.getElementsByTagName('video')[0];#}
-{#            video.src = window.URL.createObjectURL(mediaStream);#}
-{#            video.play();#}
-{#        },#}
-{#        //handle error#}
-{#        function (error) {#}
-{#            console.log(error);#}
-{#        })#}
-{# })(); #}
+        {#    (function () {#}
+        {#    navigator.getMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);#}
+        {##}
+        {#    navigator.getMedia(#}
+        {#        // constraints#}
+        {#        {video:true, audio:false},#}
+        {##}
+        {#        // success callback#}
+        {#        function (mediaStream) {#}
+        {#            var video = document.getElementsByTagName('video')[0];#}
+        {#            video.src = window.URL.createObjectURL(mediaStream);#}
+        {#            video.play();#}
+        {#        },#}
+        {#        //handle error#}
+        {#        function (error) {#}
+        {#            console.log(error);#}
+        {#        })#}
+        {# })(); #}
 
     </script>
 {% endblock %}

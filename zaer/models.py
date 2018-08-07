@@ -11,4 +11,4 @@ class Zaer(models.Model):
     in_datetime = models.DateTimeField(default=now, blank=True, db_index=True)
     out_datetime = models.DateTimeField(blank=True, db_index=True, null=True)
     gender = models.CharField(max_length=1, blank=True, default='m')
-    image = models.ImageField(upload_to='images/', blank=True)
+    image = models.ImageField(upload_to='images/', blank=True, default='no_image')
