@@ -1,8 +1,41 @@
-{% extends "base.html" %}
+{#{% extends "base.html" %}#}
+{% load static %}
 {% load jalali_tags %}
+<html>
+<head>
+    <title>کارت زائر</title>
+    <link rel="icon" href="{% static "logo.png" %}" sizes="32x32" type="image/png">
 
-{% block content%}
-    <img class="rounded-circle" src="{{ zaer.image.url }}" height="128">
+    <link rel="stylesheet" href="{% static "node_modules/bootstrap/dist/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "node_modules/font-awesome/css/font-awesome.min.css" %}">
+    <link rel="stylesheet" href="{% static "node_modules/dropzone/dist/dropzone.css" %}">
+    <link rel="stylesheet" href="{% static "css/main.css" %}">
+
+    <script src="{% static "node_modules/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "node_modules/jquery/dist/jquery.slim.min.js" %}"></script>
+    <script src="{% static "node_modules/jquery/dist/jquery.min.js" %}"></script>
+    <script src="{% static "node_modules/popper.js/dist/umd/popper.min.js" %}"></script>
+    <script src="{% static "node_modules/masonry-layout/dist/masonry.pkgd.min.js" %}"></script>
+    <script src="{% static "node_modules/imagesloaded/imagesloaded.pkgd.min.js" %}"></script>
+    <script src="{% static "node_modules/dropzone/dist/dropzone.js" %}"></script>
+    <script src="{% static "js/main.js" %}"></script>
+</head>
+<body class="container" style="direction: rtl; text-align: right">
+<div class="row">
+    <div class="col col-12  justify-content-center">
+        <img src="{% static "logo.png" %}" height="128">
+    </div>
+    <div class="col col-12  justify-content-center">
+        موکب اباصالح المهدی (عج)
+    </div>
+    <div class="col col-12  justify-content-center">
+کارت زائر
+    </div>
+</div>
+
+
+
+    <img src="{{ zaer.image.url }}" height="128">
     <div>
     نام: {{ zaer.first_name }}
     </div>
@@ -29,4 +62,6 @@
      <script type="text/javascript">
       window.onload = function() { window.print(); }
  </script>
-{% endblock %}
+    </body>
+
+</html>

@@ -8,8 +8,6 @@ from .form import ZaerForm
 import datetime
 
 
-# @login_required
-
 def zaer_list(request):
 
     page = request.GET.get('page', 1)
