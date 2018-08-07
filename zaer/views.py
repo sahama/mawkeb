@@ -65,3 +65,19 @@ def zaer_new(request):
     return render(request, 'zaer/new.html', {
         'form': form,
     })
+
+
+@login_required
+def zaer_statistic(request):
+    today = datetime.date.today()
+    yesterday = today - datetime.timedelta(days=1)
+    current_zaer = Zaer.objects.filter(out_datetime__isnull=True).count()
+    today_zaer = Zaer.objects.filter(in_datetime__day=today.day).count()
+    yesterday_zaer = Zaer.objects.filter(in_datetime__day=yesterday.day).count()
+    context = {
+        "current_zaer": current_zaer,
+        "today_zaer": today_zaer,
+        "yesterday_zaer": yesterday_zaer
+    }
+
+    return render(request, "zaer/statistic.html", context)

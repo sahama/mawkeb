@@ -28,6 +28,7 @@ urlpatterns = [
     path('<int:zaer_id>/print', zaer_view.zaer_cart, name='zaer_cart'),
     path('<int:zaer_id>/out', zaer_view.zaer_set_out, name='zaer_out'),
     path('new/', zaer_view.zaer_new, name='zaer_new'),
+    path('zaer_statistic/', zaer_view.zaer_statistic, name='zaer_statistic'),
 ]
 
 
