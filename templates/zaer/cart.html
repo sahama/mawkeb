@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="{% static "node_modules/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "node_modules/font-awesome/css/font-awesome.min.css" %}">
+    <link rel="stylesheet" href="{% static "node_modules/vazir-font/dist/font-face.css" %}">
     <link rel="stylesheet" href="{% static "css/print.css" %}">
 
     <script src="{% static "node_modules/bootstrap/dist/js/bootstrap.min.js" %}"></script>
@@ -17,8 +18,8 @@
     <script src="{% static "node_modules/popper.js/dist/umd/popper.min.js" %}"></script>
     <script src="{% static "js/print.js" %}"></script>
 </head>
-<body class="container" style="direction: rtl; text-align: right">
-<div class="row">
+<body class="container" style="direction: rtl; text-align: right; font-family: Vazir">
+<div class="row mt-3">
     <div class="col-4  text-center">
         موکب اباصالح المهدی (عج)
     </div>
@@ -35,34 +36,36 @@
         <div>
             نام: {{ zaer.first_name }}
         </div>
-    </div>
-    <div class="col-6">
         <div>
             نام خانوادگی: {{ zaer.last_name }}
         </div>
+        <div>
+            سن: {{ zaer.age }} سال
+        </div>
+        <div>
+            جنسیت: {% if zaer.gender == 'm' %}   مرد {% elif zaer.gender == 'f' %} زن {% endif %}
+        </div>
+
     </div>
-    <div>
-        آدرس: {{ zaer.address }}
+    <div class="col-6">
+        <div>
+            آدرس: {{ zaer.address }}
+        </div>
+        <div>
+            تاریخ ورود: {{ zaer.in_datetime|to_jalali:'%H:%M:%S %y/%m/%d' }}
+        </div>
+        <div>
+            تاریخ خروج: {{ zaer.out_datetime|to_jalali:'%H:%M:%S %y/%m/%d' }}
+        </div>
+
     </div>
-    <div>
-        سن: {{ zaer.age }}
-    </div>
-    <div>
-        تاریخ ورود: {{ zaer.in_datetime|to_jalali:'%H:%M:%S %y/%m/%d' }}
-    </div>
-    <div>
-        تاریخ خروج: {{ zaer.out_datetime|to_jalali:'%H:%M:%S %y/%m/%d' }}
-    </div>
-    <div>
-        جنسیت: {% if zaer.gender == 'm' %}   مرد {% elif zaer.gender == 'f' %} زن {% endif %}
-    </div>
+
 </div>
 
 <script type="text/javascript">
-    {#window.onload = function () {#}
-    {#    window.print();#}
-    {
-    #}#}
+    window.onload = function () {
+        window.print();
+    }
 </script>
 </body>
 
