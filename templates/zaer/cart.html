@@ -20,14 +20,17 @@
 </head>
 <body class="container" style="direction: rtl; text-align: right; font-family: Vazir">
 <div class="row mt-3">
-    <div class="col-4  text-center">
+    <div class="col-6  text-center">
+        <div>
+        <img src="{% static "logo.png" %}" height="128">
+            </div>
+        <div>
         موکب اباصالح المهدی (عج)
+            </div>
     </div>
-    <div class="col-4  text-center">
-        <img src="{% static "logo.png" %}" height="64">
-    </div>
-    <div class="col-4  text-center">
-        <img src="{{ zaer.image.url }}" height="128">
+    <div class="col-6  text-center">
+
+        <img src="{{ zaer.image.url }}" width="100%">
     </div>
 </div>
 
