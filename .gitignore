@@ -5,7 +5,4 @@ db.sqlite3
 
 __pycache__
 templates/registration/
-templates/zaer/index.html
-templates/zaer/new_post.html
-templates/zaer/post_by_tag.html
 /media/images
