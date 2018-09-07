@@ -1,0 +1,36 @@
+{% load widget_tweaks %}
+
+{# feild #}
+{# form #}
+{# placeholder #}
+
+{% with field_class=field_class|default_if_none:'' %}
+<div class="form-group">
+    {{ field.label_tag }}
+    {% if form.is_bound %}
+        {% if field.errors %}
+            <div class="input-group">
+                {% render_field field|add_class:field_class class="form-control is-invalid" placeholder=placeholder %}
+            </div>
+            {% for error in field.errors %}
+                <div class="invalid-feedback">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="input-group">
+                {% render_field field|add_class:field_class class="form-control is-valid" placeholder=placeholder %}
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="input-group">
+            {% render_field field|add_class:field_class class="form-control" placeholder=placeholder %}
+        </div>
+    {% endif %}
+
+    {% if field.help_text %}
+        <small class="form-text text-muted">{{ field.help_text | safe }}</small>
+    {% endif %}
+</div>
+
+{% endwith %}
