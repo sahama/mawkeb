@@ -141,10 +141,3 @@
 })();
 
 
-
-
-
-
-// var newZaer = function () {
-//     console.log('submit');
-// }

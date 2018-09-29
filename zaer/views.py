@@ -1,3 +1,4 @@
+from django.core.files.base import ContentFile
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -6,7 +7,7 @@ from django.db import transaction
 from .models import Zaer
 from .form import ZaerForm
 import datetime
-
+import base64
 
 def zaer_list(request):
 
@@ -51,8 +52,15 @@ def zaer_new(request):
     if request.method == 'POST':
         zaer = Zaer()
         form = ZaerForm(request.POST, request.FILES, instance=zaer)
+        img_b64 = request.POST.get('image')
+        img_b64 = img_b64.split(',', maxsplit=1)[1]
+        img_bin = base64.b64decode(img_b64)
+
+
         if form.is_valid():
             form.save()
+            content = ContentFile(img_bin)
+            form.instance.image.save("{0}.png".format(form.instance.id), content)
             messages.success(request, 'new zaer!')
             return redirect('zaer_detail', zaer.id)
         else:

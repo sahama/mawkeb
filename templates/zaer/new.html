@@ -7,7 +7,7 @@
 
     <script src="{% static "js/capture_picture.js" %}"></script>
 
-    <form method="post" enctype="multipart/form-data" novalidate>
+    <form method="post" enctype="multipart/form-data" id="newZaerForm" novalidate>
         <div class="row">
             <div class="col col-sm-6">
                 <div class="camera">
@@ -37,35 +37,25 @@
                 {% endfor %}
             </div>
         {% endif %}
-{#        <input type="file" accept="image/*;capture=camera">#}
-{#        {% include 'include/field_frame.html' with form=form field=form.image placeholder="تصویر" %}#}
+        {#        <input type="file" accept="image/*;capture=camera">#}
+        {#        {% include 'include/field_frame.html' with form=form field=form.image placeholder="تصویر" %}#}
         {% include 'include/field_frame.html' with form=form field=form.first_name placeholder="نام" %}
         {% include 'include/field_frame.html' with form=form field=form.last_name placeholder="نام خانوادگی" %}
         {% include 'include/field_frame.html' with form=form field=form.age placeholder="سن" %}
         {% include 'include/field_frame.html' with form=form field=form.gender placeholder="جنسیت" %}
         {% include 'include/field_frame.html' with form=form field=form.address placeholder="آدرس" %}
         {% include 'include/field_frame.html' with form=form field=form.mobile placeholder="موبایل" %}
-        <button type="submit" class="btn btn-primary" onsubmit="newZaer()">ثبت</button>
     </form>
+    <button type="submit" class="btn btn-primary" id="newZaer">ثبت</button>
     <script>
-        {#    (function () {#}
-        {#    navigator.getMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);#}
-        {##}
-        {#    navigator.getMedia(#}
-        {#        // constraints#}
-        {#        {video:true, audio:false},#}
-        {##}
-        {#        // success callback#}
-        {#        function (mediaStream) {#}
-        {#            var video = document.getElementsByTagName('video')[0];#}
-        {#            video.src = window.URL.createObjectURL(mediaStream);#}
-        {#            video.play();#}
-        {#        },#}
-        {#        //handle error#}
-        {#        function (error) {#}
-        {#            console.log(error);#}
-        {#        })#}
-        {# })(); #}
-
+        $("#newZaer").click(function () {
+            $("<input>").attr({
+                type: 'hidden',
+                id: 'image',
+                name: 'image',
+                value: $("#photo")[0].src
+            }).appendTo($("#newZaerForm"))
+            $("#newZaerForm").submit()
+        })
     </script>
 {% endblock %}
