@@ -20,9 +20,13 @@ from django.contrib import admin
 from django.urls import path
 from zaer import views as zaer_view
 from mawkeb import settings
+from django.contrib.auth import views as authView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/login/', authView.LoginView.as_view(), name="login"),
+    path('accounts/logout/', authView.LogoutView.as_view(next_page='/'), name="logout"),
+
     path('', zaer_view.zaer_list, name='zaer_list'),
     path('<int:zaer_id>', zaer_view.zaer_detail, name='zaer_detail'),
     path('<int:zaer_id>/print', zaer_view.zaer_cart, name='zaer_cart'),
