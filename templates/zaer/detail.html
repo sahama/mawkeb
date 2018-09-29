@@ -2,7 +2,7 @@
 {% load jalali_tags %}
 
 {% block content%}
-    <img class="rounded-circle" src="{{ zaer.image.url }}" height="128">
+    <img class="img-thumbnail" src="{{ zaer.image.url }}" height="128">
     <div>
     نام: {{ zaer.first_name }}
     </div>
@@ -25,7 +25,7 @@
 جنسیت: {% if zaer.gender == 'm'%}   مرد {% elif zaer.gender == 'f' %} زن {% endif %}
     </div>
 
-<a href="{% url "zaer_cart" zaer.id %}"><div class="btn btn-info my-2 my-sm-0" type="submit">zaer cart</div></a>
+<a href="{% url "zaer_cart" zaer.id %}" target="_blank"><div class="btn btn-info my-2 my-sm-0" type="submit">zaer cart</div></a>
 <a href="{% url "zaer_out" zaer.id %}"><div class="btn btn-warning my-2 my-sm-0" type="submit">zaer out</div></a>
 
 {% endblock %}
