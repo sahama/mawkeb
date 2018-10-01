@@ -11,10 +11,10 @@ class Zaer(models.Model):
     address = models.CharField(_("address"), max_length=1000, blank=True)
     mobile = models.CharField(_("mobile"), max_length=16, blank=True)
     # birth_date = models.DateField(blank=True, db_index=True)
-    age = models.IntegerField(_("age"), default=0)
+    age = models.IntegerField(_("age"))
     in_datetime = models.DateTimeField(_("in date"), default=now, blank=True, db_index=True)
     out_datetime = models.DateTimeField(_("out date"), blank=True, db_index=True, null=True)
-    gender = models.CharField(_("gender"), choices=GENDER_CHOICES, max_length=1, default='m')
+    gender = models.CharField(_("gender"), choices=GENDER_CHOICES, max_length=1)
     image = models.ImageField(_("image"), upload_to='images/', blank=True, default='no_image')
 
     def save(self, *args, **kwargs):
