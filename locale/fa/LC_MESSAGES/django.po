@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mawkeb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-01 07:35+0000\n"
-"PO-Revision-Date: 2018-10-01 11:10+0330\n"
+"POT-Creation-Date: 2018-10-01 08:07+0000\n"
+"PO-Revision-Date: 2018-10-01 11:38+0330\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fa\n"
@@ -21,6 +21,14 @@ msgstr ""
 #: templates/include/navbar_frame.html:21
 msgid "new zaer"
 msgstr "زائر جدید"
+
+#: templates/zaer/detail.html:31
+msgid "zaer cart"
+msgstr "چاپ کارت زائر"
+
+#: templates/zaer/detail.html:32
+msgid "zaer out"
+msgstr "ثبت خروج زائر"
 
 #: templates/zaer/new.html:15
 msgid "Take photo"

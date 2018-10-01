@@ -77,7 +77,7 @@ def zaer_new(request):
 def zaer_statistic(request):
     today = datetime.date.today()
     yesterday = today - datetime.timedelta(days=1)
-    current_zaer = Zaer.objects.filter(out_datetime__isnull=True).count()
+    current_zaer = Zaer.objects.filter(out_datetime__gte=today).count()
     today_zaer = Zaer.objects.filter(in_datetime__day=today.day).count()
     yesterday_zaer = Zaer.objects.filter(in_datetime__day=yesterday.day).count()
     context = {

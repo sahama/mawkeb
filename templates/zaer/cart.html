@@ -52,13 +52,16 @@
     </div>
     <div class="col-6">
         <div>
-            آدرس: {{ zaer.address }}
-        </div>
-        <div>
             تاریخ ورود: {{ zaer.in_datetime|to_jalali:'%H:%M:%S %y/%m/%d' }}
         </div>
         <div>
             تاریخ خروج: {{ zaer.out_datetime|to_jalali:'%H:%M:%S %y/%m/%d' }}
+        </div>
+        <div>
+            موبایل: {{ zaer.mobile }}
+        </div>
+        <div>
+            آدرس: {{ zaer.address }}
         </div>
 
     </div>
@@ -67,7 +70,7 @@
 
 <script type="text/javascript">
     window.onload = function () {
-        window.print();
+        {#window.print();#}
     }
 </script>
 </body>

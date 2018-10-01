@@ -10,10 +10,16 @@
     نام خانوادگی: {{ zaer.last_name }}
     </div>
     <div>
+    سن: {{ zaer.age }}
+    </div>
+    <div>
+جنسیت: {% if zaer.gender == 'm'%}   مرد {% elif zaer.gender == 'f' %} زن {% endif %}
+    </div>
+    <div>
     آدرس: {{ zaer.address }}
     </div>
     <div>
-    سن: {{ zaer.age }}
+    موبایل: {{ zaer.mobile }}
     </div>
     <div>
     تاریخ ورود: {{ zaer.in_datetime|to_jalali:'%H:%M:%S %y/%m/%d' }}
@@ -21,11 +27,8 @@
     <div>
     تاریخ خروج: {{ zaer.out_datetime|to_jalali:'%H:%M:%S %y/%m/%d' }}
     </div>
-    <div>
-جنسیت: {% if zaer.gender == 'm'%}   مرد {% elif zaer.gender == 'f' %} زن {% endif %}
-    </div>
 
-<a href="{% url "zaer_cart" zaer.id %}" target="_blank"><div class="btn btn-info my-2 my-sm-0" type="submit">zaer cart</div></a>
-<a href="{% url "zaer_out" zaer.id %}"><div class="btn btn-warning my-2 my-sm-0" type="submit">zaer out</div></a>
+<a href="{% url "zaer_cart" zaer.id %}" target="_blank"><div class="btn btn-info my-2 my-sm-0" type="submit">{{ _('zaer cart') }}</div></a>
+<a href="{% url "zaer_out" zaer.id %}"><div class="btn btn-warning my-2 my-sm-0" type="submit">{{ _('zaer out') }}</div></a>
 
 {% endblock %}
