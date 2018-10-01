@@ -12,7 +12,7 @@
             <div class="col col-sm-6">
                 <div class="camera">
                     <video id="video">Video stream not available.</video>
-                    <button id="startbutton">Take photo</button>
+                    <button id="startbutton">{{ _("Take photo") }}</button>
                 </div>
             </div>
             <div class="col col-sm-6">
@@ -54,7 +54,7 @@
                 id: 'image',
                 name: 'image',
                 value: $("#photo")[0].src
-            }).appendTo($("#newZaerForm"))
+            }).appendTo($("#newZaerForm"));
             $("#newZaerForm").submit()
         })
     </script>
