@@ -21,3 +21,6 @@ class Zaer(models.Model):
         self.out_datetime = self.in_datetime + datetime.timedelta(days=3)
         super(Zaer, self).save(*args, **kwargs)
 
+
+    def __str__(self):
+        return " ".join([self.first_name, self.last_name])

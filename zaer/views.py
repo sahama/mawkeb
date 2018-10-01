@@ -39,6 +39,7 @@ def zaer_cart(request, zaer_id):
     context = {"zaer": zaer}
     return render(request, "zaer/cart.html", context)
 
+@login_required
 def zaer_set_out(request, zaer_id):
     zaer = Zaer.objects.get(pk=zaer_id)
     zaer.out_datetime = datetime.datetime.now()
