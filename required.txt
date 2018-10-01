@@ -1,3 +1,6 @@
-django_widget_tweaks
-django_jalali_date
-pillow
+http server with https and wsgi support
+python 3.4 or higher with this packages installed:
+ * django
+ * django_widget_tweaks
+ * django_jalali_date
+ * pillow
